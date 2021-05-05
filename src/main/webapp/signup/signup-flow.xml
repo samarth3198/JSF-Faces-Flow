@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <flow-definition id="signup">                  <!-- flow that we need to configure -->
+        <flow-return id="exit">                    <!-- Terminates the execution of flow -->
+            <from-outcome>#{signupBean.homeAction}</from-outcome>   <!-- Flow returns back here after terminating -->
+        </flow-return>
+
+        <flow-call id="callSettingsFlow">          <!-- Calling another flow named Validate -->
+            <flow-reference>
+                <flow-id>validate</flow-id>
+            </flow-reference>
+
+            <outbound-parameter>                    <!-- Passing parameters two the validate flow -->
+                <name>param1FromSignup</name>
+                <value>#{flowScope.email}</value>
+            </outbound-parameter>
+            <outbound-parameter>
+                <name>param2FromSignup</name>
+                <value>#{flowScope.password}</value>
+            </outbound-parameter>
+
+        </flow-call>
+    </flow-definition>
+
+</faces-config>

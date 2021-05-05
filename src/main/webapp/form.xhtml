@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>JSF Form</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h3>Employee Department Information</h3>
+        <h:outputLabel for="name">Employee Name </h:outputLabel>
+        <h:inputText value="#{employee.singleEmployee.name}" id="name"/>
+        <br/>
+        <br/>
+
+        <h:outputLabel for="department">Employee Department </h:outputLabel>
+        <h:inputText value="#{employee.singleEmployee.department}" id="department"/>
+        <br/>
+        <br/>
+
+        <h:commandButton update="@form" action="#{employee.create}" value="Submit"/>
+
+        <h:commandButton id="index" value="Exit" action="/index" />   <!-- Exits from the flow and returns to the page specified in the flow-return element -->
+    </h:form>
+
+
+</h:body>
+</html>

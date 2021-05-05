@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>Validate data and Accept</title>
+</head>
+<!-- ****************************** Second Page of the Flow **************************** -->
+<body>
+    <h:form>
+        <p>Your UserName is: #{flowScope.email}</p>   <!-- Gets the value of email that is preserved across the flow -->
++<!--        <p>Password: #{flowScope.password}</p>-->
+
+        <p>Please accept the terms and click Next</p>
+        <p>Accept: <h:selectBooleanCheckbox id="input" value="#{signupBean.terms}" /></p>
+        <p><h:commandButton id="next" value="Next" action="#{signupBean.accept}" /> </p>
+
+        <p><h:commandButton id="back" value="Back" action="signup" /></p>
+    </h:form>
+</body>
+</html>

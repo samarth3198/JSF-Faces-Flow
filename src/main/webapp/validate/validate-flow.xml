@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <flow-definition id="validate">
+        <flow-return id="index">
+            <from-outcome>#{validateBean.homeAction}</from-outcome>
+        </flow-return>
+
+        <inbound-parameter>
+            <name>param1FromSignup</name>
+            <value>#{flowScope.email}</value>
+        </inbound-parameter>
+        <inbound-parameter>
+            <name>param2FromSignup</name>
+            <value>#{flowScope.password}</value>
+        </inbound-parameter>
+
+    </flow-definition>
+
+</faces-config>
